@@ -1,13 +1,17 @@
-export const UserRow = () => {
-  return (
-    <tr className="p-2">
-      <td>
-        <img src="" className="rounded-full w-14" alt="User Avatar" />
-      </td>
-      <td>
-        {"Gustavo"} {"Saavedra"}
-      </td>
-      <td>{"gustavo@gmail.com"}</td>
-    </tr>
-  );
-};
+import type { User } from "../interfaces/reqres.response";
+
+export const UserRow = ({ user }: { user: User }) => (
+  <tr>
+    <td>
+      <img
+        src={user.avatar}
+        alt={user.first_name}
+        className="w-10 h-10 rounded-full"
+      />
+    </td>
+    <td>
+      {user.first_name} {user.last_name}
+    </td>
+    <td>{user.email}</td>
+  </tr>
+);
