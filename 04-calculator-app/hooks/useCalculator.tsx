@@ -14,12 +14,43 @@ export const useCalculator = () => {
 
   const [prevNumber, setPrevNumber] = useState("0");
 
-  const lastOperation = useRef<Operator>();
+  const lastOperation = useRef<Operator>(undefined);
 
   useEffect(() => {
     // Todo: Calcular subResultado
     setFormula(number);
   }, [number]);
+
+  const clean = () => {
+    setNumber("0");
+    setPrevNumber("0");
+    setFormula("0");
+    lastOperation.current = undefined;
+  };
+
+  const toggleSign = () => {
+    if (number.includes("-")) {
+      return setNumber(number.replace("-", ""));
+    }
+
+    setNumber("-" + number);
+  };
+
+  const deleteLast = () => {
+    let currentSign = "";
+    let temporalNumber = number;
+
+    if (number.includes("-")) {
+      currentSign = "-";
+      temporalNumber = number.substring(1);
+    }
+
+    if (temporalNumber.length > 1) {
+      return setNumber(currentSign + temporalNumber.slice(0, -1));
+    }
+
+    setNumber("0");
+  };
 
   const buildNumber = (numberString: string) => {
     if (number.includes(".") && numberString === ".") return;
@@ -56,5 +87,8 @@ export const useCalculator = () => {
 
     // Methods
     buildNumber,
+    clean,
+    toggleSign,
+    deleteLast,
   };
 };
