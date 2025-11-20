@@ -22,4 +22,5 @@ export default function RootLayout() {
   if (!fontsLoaded && !error) return null;
 
   return <Slot />;
+  // return <Stack />;
 }
