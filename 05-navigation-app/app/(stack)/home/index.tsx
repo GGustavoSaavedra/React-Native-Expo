@@ -36,16 +36,6 @@ const HomeScreen = () => {
             Productos
           </CustomButton>
         </Link>
-
-        {/* <Link className="mb-5" href="/products">
-          Productos{" "}
-        </Link>
-        <Link className="mb-5" href="/profile">
-          Perfil{" "}
-        </Link>
-        <Link className="mb-5" href="/settings">
-          Ajustes{" "}
-        </Link> */}
       </View>
     </SafeAreaView>
   );
