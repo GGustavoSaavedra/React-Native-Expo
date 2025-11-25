@@ -1,6 +1,6 @@
 import CustomButton from "@/components/shared/CustomButton";
 import { DrawerActions } from "@react-navigation/native";
-import { Link, router, useNavigation } from "expo-router";
+import { router, useNavigation } from "expo-router";
 import { View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -37,12 +37,6 @@ const HomeScreen = () => {
         >
           Ajustes
         </CustomButton>
-
-        <Link href="/products" asChild>
-          <CustomButton variant="text-only" className="mb-10" color="primary">
-            Productos
-          </CustomButton>
-        </Link>
 
         <CustomButton onPress={onToggleDrawer}>Abrir menú</CustomButton>
       </View>
